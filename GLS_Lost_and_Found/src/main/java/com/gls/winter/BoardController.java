@@ -44,7 +44,8 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/my_page", method = RequestMethod.GET)
-	public String myPage() {
+	public String boardlist_test_mypage(Model model) {
+		model.addAttribute("list",boardService.getBoardList());
 		return "my_page";
 	}
 	
