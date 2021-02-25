@@ -102,7 +102,7 @@ body {
 							style="position: absolute; float: left; margin-left: 70px; margin-top: 10px;">마이페이지</a>
 						<a href="add"
 							style="position: absolute; float: left; margin-left: 160px; margin-top: 10px;">글쓰기</a>
-						<a href="chat_page"
+						<a href="../chat/chat_page"
 							style="position: absolute; float: left; margin-left: 220px; margin-top: 10px;">채팅하기</a>
 						<a href="log_out"
 							style="position: absolute; float: left; margin-left: 290px; margin-top: 10px;">로그아웃</a>

@@ -32,7 +32,18 @@ pageEncoding="UTF-8"%>
 </head>
 <body>
 
-
+<span id="name"> </span>
+	<%
+		//out.write("<h1> hi there </h1>");
+		if(session.getAttribute("userid") == null){
+			out.write("<location.href ='../login/login'>");
+			/* out.write("<h1> hi there </h1>"); */	
+		}else {
+			String userid = (String)session.getAttribute("userid");
+			out.write("<span> welcome" + "<strong> " + userid + "</strong> </span>");
+		}
+	%>
+	
     <%@include file="./modules/header.jsp"%>
     <%@include file="./modules/navbar.jsp"%>
     <!-- 모듈화  -->
@@ -58,7 +69,7 @@ pageEncoding="UTF-8"%>
 					<p class="w3-center">
 						<button type="submit" id="joinBtn"
 							class="w3-button w3-block w3-blue w3-ripple w3-margin-top w3-round">ID
-							변경하기</button>
+							변경하기</button> 
 					</p>
 					
 				</form>
@@ -82,7 +93,7 @@ pageEncoding="UTF-8"%>
 	
 				<div class="w3-center">
 					<div class="row">
-						<table class="table table-striped"
+						<table class="table table-striped" width="90%"
 							style="text-align: center; border: 1px solid #dddddd">
 							<thead>
 								<tr>
@@ -107,7 +118,7 @@ pageEncoding="UTF-8"%>
 									<td>
 										<div id="buttonArea">
 											<div id="editButton">
-												<a id="fontcolor" href="editform/${u.seq}" class="btn w3-blue btn-danger">수정하기</a>
+												<a id="fontcolor" href="editform/${u.seq}" class="btn w3-blue">수정하기</a>
 											</div>
 											<div id="deleteButton">
 												<a id="fontcolor" href="javascript:delete_ok('${u.seq}')" class="btn w3-red btn-danger">삭제하기
@@ -126,70 +137,6 @@ pageEncoding="UTF-8"%>
 				<script src="js/bootstrap.js"></script>
 			    </form>
  				
- 				<!--채팅 목록  -->
- 				
-				<form>
-				
-				<div class="w3-center">
-				<h3>채팅 목록 </h3>
-				</div>
-				
-	
-				<div class="w3-center">
-					<div class="row">
-					
-					    <style>
-					      table {
-					        width: 100%;
-					      }
-					      table, th, td {
-					        border: 1px solid #bcbcbc;
-					      }
-					    </style>
-					    
-						<table class="table table-striped"
-							style="text-align: center; border: 1px solid #dddddd">
-							<thead>
-								<tr>
-									<th style="background-color: #eeeeee; text-align: center;">번호</th>
-									<th style="background-color: #eeeeee; text-align: center;">글 </th>
-									<th style="background-color: #eeeeee; text-align: center;">ID</th>
-									<th style="background-color: #eeeeee; text-align: center;">작성일</th>
-									<th style="background-color: #eeeeee; text-align: center;">채팅하기 </th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>1</td>
-									<td>안녕하세요</td>
-									<td>총스 </td>
-									<td>2021-01-10</td>
-									<td>
-									<a href="chatting.jsp" class="w3-button w3-block w3-yellow w3-brown w3-margin-top w3-round">채팅</a>
-									</td>
-								</tr>
-								
-								<tr>
-									<td>2</td>
-									<td>어디신가요 ?</td>
-									<td>길동이 </td>
-									<td>2021-01-10 </td>
-									<td>
-									<a href="chatting.jsp" class="w3-button w3-block w3-yellow w3-brown w3-margin-top w3-round">채팅</a>
-									</td>
-								</tr>
-							</tbody>
-			
-						</table>
-        				</div>
-				</div>
-				<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-				<script src="js/bootstrap.js"></script>
-			
-			    </form>
-
-
- 
 </body>
 
 </html>

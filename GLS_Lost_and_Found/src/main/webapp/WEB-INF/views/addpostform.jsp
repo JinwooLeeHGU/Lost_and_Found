@@ -14,7 +14,7 @@
 
 	<h1>새 물품 등록하기</h1>
 	<form action="addok" method="post" enctype="multipart/form-data">
-		<table id="list">
+		<table id="list2">
 			<tr>
 				<td id="definition">Lost/Found</td>
 				<td><input type="radio" id="lost" name="lost" value="0" checked>

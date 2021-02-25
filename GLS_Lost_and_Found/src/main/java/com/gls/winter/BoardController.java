@@ -53,11 +53,7 @@ public class BoardController {
 	public String logout() {
 		return "log_out";
 	}
-	
-	@RequestMapping(value = "/chat_page", method = RequestMethod.GET)
-	public String chatpage() {
-		return "chat_page";
-	}
+
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addPost() {
 		return "addpostform";
@@ -99,5 +95,4 @@ public class BoardController {
 	}
 	
 	
-
 }

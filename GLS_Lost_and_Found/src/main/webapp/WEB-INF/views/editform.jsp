@@ -18,7 +18,7 @@
 	<h1>수정하기</h1>
 	<form:form commandName="u" method="POST" action="../editok">
 		<form:hidden path="seq" />
-		<table id="list">
+		<table id="list2">
 			<tr>
 				<td id="definition">Lost/Found</td>
 				<td><input type="radio" id="lost" name="lost" value="0" checked>
