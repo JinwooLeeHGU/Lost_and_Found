@@ -63,12 +63,11 @@ pageEncoding="UTF-8"%>
 
 </head>
 <body>
-
-
+	
+	
     <%@include file="./modules/header.jsp"%>
     <%@include file="./modules/navbar.jsp"%>
     <!-- 모듈화  -->
-    
     
 	<div class="w3-content w3-container w3-margin-top">
 		<div class="w3-container w3-card-4">

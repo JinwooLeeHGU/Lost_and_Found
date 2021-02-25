@@ -42,7 +42,6 @@ public class BoardController {
 	}
 	
 	
-	
 	@RequestMapping(value = "/my_page", method = RequestMethod.GET)
 	public String myPage() {
 		return "my_page";
