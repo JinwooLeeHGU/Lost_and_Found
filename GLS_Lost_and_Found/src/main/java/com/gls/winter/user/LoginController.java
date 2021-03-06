@@ -23,13 +23,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.gls.winter.user.model.GoogleOAuthRequest;
 import com.gls.winter.user.model.GoogleOAuthResponse;
+import com.gls.winter.BoardService;
 
 @Controller
 @RequestMapping(value = "/login")
 public class LoginController {
+	
 	@Autowired
 	UserServiceImpl service;
-
+	@Autowired
+	BoardService boardService;
+	
+	
 	final static String GOOGLE_AUTH_BASE_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 	final static String GOOGLE_TOKEN_BASE_URL = "https://oauth2.googleapis.com/token";
 	final static String GOOGLE_REVOKE_TOKEN_BASE_URL = "https://oauth2.googleapis.com/revoke";
@@ -61,7 +66,8 @@ public class LoginController {
 	public String googleAuth(Model model, @RequestParam(value = "code") String authCode, HttpServletRequest request,
 			HttpSession session, UserVO vo) throws Exception {
 		System.out.println("googleCallback: Google login success");
-
+		model.addAttribute("list", boardService.getBoardList());
+		
 		// HTTP Request를 위한 RestTemplate
 		RestTemplate restTemplate = new RestTemplate();
 
