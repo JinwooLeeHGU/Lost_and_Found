@@ -51,9 +51,22 @@ link href ="https: //cdn.jsdelivr.net /npm /bootstrap @5.0.0-beta1 /dist
 		style="clear: both; width: 970px; height: 71px; margin: 0px auto; overflow: hidden; padding-top: 5px;">
 		<div
 			style="float: right; overflow: hidden; width: 700px; position: relative; margin-top: 9px">
+			<%-- <c:out value="${path}/board/searchlist"/> --%>
+			
 			<form name="fsearchbox_main" id="fsearchbox_main"
-				action="https://search.cetizen.com/search.php"
-				onSubmit="main_submit();" method=get style='display: inline;'>
+				action="${path}/board/searchlist" onSubmit="main_submit();"
+				method=get style='display: inline;'>
+				<select name="searchOption">
+					<!-- 검색조건을 검색처리후 결과화면에 보여주기위해  c:out 출력태그 사용, 삼항연산자 -->
+					<option value="all"
+						<c:out value="${map.searchOption == 'all'?'selected':''}"/>>제목+이름+제목</option>
+					<option value="writer"
+						<c:out value="${map.searchOption == 'writer'?'selected':''}"/>>이름</option>
+					<option value="content"
+						<c:out value="${map.searchOption == 'content'?'selected':''}"/>>내용</option>
+					<option value="title"
+						<c:out value="${map.searchOption == 'title'?'selected':''}"/>>제목</option>
+				</select>
 				<div
 					style="overflow: hidden; width: 350px; margin: 0px auto; margin: 13px 0px 0px 0px; border: 2px solid #8AD1E8;">
 					<div
@@ -118,8 +131,8 @@ link href ="https: //cdn.jsdelivr.net /npm /bootstrap @5.0.0-beta1 /dist
 					</div>
 					<div
 						style="float: left; overflow: hidden; background-color: #8AD1E8; height: 39px; width: 46px; padding: 3px 0px 0px 0px">
-						<input type=image src="/resources/images/search_icon.png"
-							width="44" height="35" align=absmiddle style="">
+						<input type="submit" value="검색 " width="44" height="35"
+							align=absmiddle style="">
 					</div>
 				</div>
 

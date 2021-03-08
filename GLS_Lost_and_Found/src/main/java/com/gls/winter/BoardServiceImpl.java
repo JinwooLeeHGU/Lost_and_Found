@@ -1,5 +1,6 @@
 package com.gls.winter;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,15 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<BoardVO> getBoardList() {
 		return boardDAO.getBoardList();
+	}
+
+	@Override
+	public List<BoardVO> listAll(int start, int end, String searchOption, String keyword) throws Exception {
+		return boardDAO.listAll(start, end, searchOption, keyword);
+	}
+
+	@Override
+	public int countArticle(String searchOption, String keyword) throws Exception {
+		return boardDAO.countArticle(searchOption, keyword);
 	}
 }

@@ -68,6 +68,7 @@
 
 div.card {
 	width: 95%;
+	height: 450px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
 		rgba(0, 0, 0, 0.19);
 	text-align: left;
@@ -164,25 +165,31 @@ div.description {
 					
 					 <span class="title">${u.title}</span>
 
-					<div class="name">상품명 : ${u.category}</div>
+					<div class="name"> 카테고리 : ${u.category}</div>
 
-					<div class="price">가격 : ${u.writer}</div>
+					<div class="price">작성자 : ${u.writer}</div>
 
 					<div class="other" style="box-sizing: border-box; height: 50px;">비고
 						: ${u.content}</div>
 
 					<div class="regdate">작성일자 : ${u.regdate}</div>
-
-					<div id="buttonArea">
-						<div id="editButton">
-							<a id="fontcolor" href="editform/${u.seq}">Edit</a>
+					
+					<%-- <c:out value="${u.writer }"/> --%>
+					<%-- <c:out value="${login.username }"/> --%>
+					
+					<c:if test="${login.username == u.writer}">
+					<%-- <c:if test="${sessionScope.username ==  }" --%>
+						<div id="buttonArea">
+							<div id="editButton">
+								<a id="fontcolor" href="editform/${u.seq}">Edit</a>
+							</div>
+	
+							<div id="deleteButton">
+								<a id="fontcolor" href="javascript:delete_ok('${u.seq}')">Delete</a>
+							</div>
+	
 						</div>
-
-						<div id="deleteButton">
-							<a id="fontcolor" href="javascript:delete_ok('${u.seq}')">Delete</a>
-						</div>
-
-					</div>
+					</c:if>
 
 				</div>
 

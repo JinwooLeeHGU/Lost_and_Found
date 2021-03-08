@@ -109,6 +109,7 @@ public class LoginController {
 		String returnURL = "";
 		UserVO loginvo = service.getUser(checkvo); //로그인 체크하기 위해
 		
+		
 		if (session.getAttribute("login") != null) { // 이미 로그인 되어있는지
 			session.removeAttribute("login");
 		}
@@ -124,6 +125,7 @@ public class LoginController {
 				returnURL = "redirect:/login/login";
 			}
 			else {
+				System.out.println(checkvo.getUserid());
 				System.out.println("회원가입 성공!!!");
 				session.setAttribute("login", checkvo);
 				returnURL = "redirect:/board/list";
