@@ -43,7 +43,7 @@ public class BoardController {
 
 		// 레코드의 갯수 계산
 		int count = boardService.countArticle(searchOption, keyword);
-		
+
 		// 페이지 나누기 관련 처리
 		BoardPager boardPager = new BoardPager(count, curPage);
 		int start = boardPager.getPageBegin();
@@ -53,9 +53,9 @@ public class BoardController {
 
 //		System.out.println("->" + searchOption + " " + keyword);
 //		List<BoardVO> list = boardService.listAll(searchOption, keyword);
-		
-//		// 레코드의 갯수 계산
-//		int count = boardService.countArticle(searchOption, keyword);
+
+		// ModelAndView - 모델과 뷰
+		ModelAndView mav = new ModelAndView();
 
 		// 데이터를 맵에 저장
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -64,9 +64,6 @@ public class BoardController {
 		map.put("searchOption", searchOption); // 검색옵션
 		map.put("keyword", keyword); // 검색키워드
 		map.put("boardPager", boardPager);
-
-		// ModelAndView - 모델과 뷰
-		ModelAndView mav = new ModelAndView();
 
 		System.out.println("->" + count);
 

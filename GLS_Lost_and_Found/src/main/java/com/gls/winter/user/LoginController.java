@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -55,11 +56,18 @@ public class LoginController {
 
 		return "login";
 	}
+	
+
+	@RequestMapping(value="/google", method=RequestMethod.GET)
+	public String google(RedirectAttributes rttr, Model model) {
+		String url = "redirect:https://accounts.google.com/o/oauth2/v2/auth?client_id=60396027837-iev9qsg4ud3cb4plotgs65c6co5q9si9.apps.googleusercontent.com&redirect_uri=http://localhost:8080/winter/login/oauth2callback&response_type=code&scope=email%20profile%20openid&access_type=offline";
+		return url;
+	}
 
 	// 구글 Callback호출 메소드
 	@RequestMapping(value = "/oauth2callback", method = RequestMethod.GET)
 	public String googleAuth(Model model, @RequestParam(value = "code") String authCode, HttpServletRequest request,
-			HttpSession session, UserVO vo) throws Exception {
+			HttpSession session, UserVO vo, RedirectAttributes redirectAttributes) throws Exception {
 		System.out.println("googleCallback: Google login success");
 
 		// HTTP Request를 위한 RestTemplate
@@ -117,6 +125,7 @@ public class LoginController {
 		if (loginvo != null) { // 로그인 성공. 이미 구글 id로 db에 저장됨
 			System.out.println("구글 ID로 로그인 성공!");
 			session.setAttribute("login", loginvo);
+			
 			returnURL = "redirect:/board/list";
 		} else { // 로그인 실패
 			System.out.println("구글 정보가 DB에 저장 안되어있음!");

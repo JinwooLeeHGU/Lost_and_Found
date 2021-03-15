@@ -104,21 +104,20 @@ function init(){
 
 	<br>
 
-	<div class="google" id="googleLoginBtn">
-		<button>
-			<i class="fa fa-google" aria-hidden="true"></i> 구글 로그인
-		</button>
-	</div>
+	<div class="google">
+			<button type="button" onclick="location.href='google'"> <i class="fa fa-google" aria-hidden="true"></i>
+			구글 로그인</button>
+		</div>
 </body>
 
-<script>
-	const onClickGoogleLogin = function(e) {
+<!-- <script>
+	const onClickGoogleLogin = function(e) { 
 		//구글서버로 인증코드 발급 요청
 		window.location
 				.replace("https://accounts.google.com/o/oauth2/v2/auth?client_id=60396027837-iev9qsg4ud3cb4plotgs65c6co5q9si9.apps.googleusercontent.com&redirect_uri=http://localhost:8080/winter/login/oauth2callback&response_type=code&scope=email%20profile%20openid&access_type=offline");
 	}
 	const googleLoginBtn = document.getElementById("googleLoginBtn");
 	googleLoginBtn.addEventListener("click", onClickGoogleLogin);
-</script>
+</script> -->
 
 </html>
