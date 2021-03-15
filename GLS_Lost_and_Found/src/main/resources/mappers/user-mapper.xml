@@ -6,9 +6,9 @@
 		where userid=#{userid}
 	</select>
 	<insert id="insertUser">
-		insert into LF_User_Test (userid, username, email, password)
+		insert into LF_User_Test (userid, password)
 		values
-		(#{userid}, #{username}, #{email}, #{password})
+		(#{userid}, #{password})
 	</insert>
 	
 </mapper>

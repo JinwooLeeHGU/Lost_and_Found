@@ -4,7 +4,6 @@ public class UserVO {
 	private String userid;
 	private String password;
 	private String username;
-	private String email;
 
 	public String getUserid() {
 		return userid;
@@ -29,14 +28,4 @@ public class UserVO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
 }
