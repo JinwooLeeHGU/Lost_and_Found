@@ -3,6 +3,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="board" type="com.gls.winter.BoardVO" />
+		<typeAlias alias="chat" type="com.gls.winter.chat.ChatVO" />
 		<typeAlias alias="user" type="com.gls.winter.user.UserVO" />
 	</typeAliases>
 </configuration>

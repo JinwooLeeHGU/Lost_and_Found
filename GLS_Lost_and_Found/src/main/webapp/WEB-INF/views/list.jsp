@@ -124,7 +124,8 @@ div.description {
 function checkLoginStatus() {
 	var loginBtn = document.querySelector('#loginBtn');
 	var nameTxt = document.querySelector('#name');
-	
+
+	var gauth = gapi.auth2.getAuthInstance();
 	if(gauth.isSignedIn.get()){
 		console.log('logged in');
 		loginBtn.value = "Logout";
@@ -146,6 +147,7 @@ function init(){
 			client_id: '60396027837-iev9qsg4ud3cb4plotgs65c6co5q9si9.apps.googleusercontent.com'
 		});
 
+		
 		gauth.then(function(){
 			console.log("googleAuth success");
 			checkLoginStatus();
@@ -182,7 +184,8 @@ function init(){
 			checkLoginStatus();
 		});
 	} else {
-		gauth.signOut().then(function(){
+		var auth2 = gapi.auth2.getAuthInstance();
+		auth2.signOut().then(function(){
 			console.log('signed out');
 			checkLoginStatus();
 			location.href = '../login/login';
@@ -205,7 +208,6 @@ function init(){
 	<%@include file="./modules/header.jsp"%>
 	<%@include file="./modules/navbar.jsp"%>
 	
-
 	<table id="list" width="90%">
 		<c:forEach items="${list}" var="u">
 
